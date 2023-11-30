@@ -1,0 +1,1166 @@
+{
+	"info": {
+		"_postman_id": "a33a381f-b468-49eb-9c21-657627da816f",
+		"name": "InfiniteNote-Endpoint",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "18373209"
+	},
+	"item": [
+		{
+			"name": "register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/users/create"
+			},
+			"response": [
+				{
+					"name": "201 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"user\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/users/create"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-O/zF1M4EsSeqcgZOzAXUbc5OpUA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Nov 2023 05:48:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User created successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"test@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/users/login"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"user@gmail.com\",\r\n    \"password\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/users/login"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "232"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e8-JgSFKFT3kfq40v2eG3ZBTA0jUr8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Nov 2023 05:49:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc\",\n    \"user\": {\n        \"email\": \"user@gmail.com\",\n        \"name\": \"user\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "create category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test\",\r\n    \"color\": {\r\n        \"id\": \"color_1212121212_id\",\r\n        \"name\": \"purple\",\r\n        \"code\": \"#22c55e\"\r\n    },\r\n    \"icon\": {\r\n        \"id\": \"icon_1212121212_id\",\r\n        \"name\": \"test\",\r\n        \"symbol\": \"💼\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/categories/create"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"work\",\r\n    \"color\": {\r\n        \"id\": \"color_1212121212_id\",\r\n        \"name\": \"purple\",\r\n        \"code\": \"#22c55e\"\r\n    },\r\n    \"icon\": {\r\n        \"id\": \"icon_1212121212_id\",\r\n        \"name\": \"work\",\r\n        \"symbol\": \"💼\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/categories/create"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "243"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f3-jPLrU3nf+RrnHT/gwRRd0WQiRNQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Nov 2023 07:04:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"work\",\n    \"isEditable\": true,\n    \"color\": {\n        \"id\": \"color_1212121212_id\",\n        \"name\": \"purple\",\n        \"code\": \"#22c55e\"\n    },\n    \"icon\": {\n        \"id\": \"icon_1212121212_id\",\n        \"name\": \"work\",\n        \"symbol\": \"💼\"\n    },\n    \"user\": \"65618a96e4d17bd2f96e8c7c\",\n    \"_id\": \"65619c82a31e3a563cac6bf3\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "get all category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/categories/"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/categories/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "245"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f5-IaiIHwzEn+t9+iQRxsdSgpvp7zk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Nov 2023 07:09:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"color\": {\n            \"id\": \"color_1212121212_id\",\n            \"name\": \"purple\",\n            \"code\": \"#22c55e\"\n        },\n        \"icon\": {\n            \"id\": \"icon_1212121212_id\",\n            \"name\": \"work\",\n            \"symbol\": \"💼\"\n        },\n        \"_id\": \"65619c82a31e3a563cac6bf3\",\n        \"name\": \"work\",\n        \"isEditable\": true,\n        \"user\": \"65618a96e4d17bd2f96e8c7c\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get category by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/categories/6567eb1e5d1d8869b76eebac"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/categories/65619c82a31e3a563cac6bf3"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "243"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f3-ZKrE1VWDybtZTqqWjN+bZS/avHg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Nov 2023 07:12:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"color\": {\n        \"id\": \"color_1212121212_id\",\n        \"name\": \"purple\",\n        \"code\": \"#22c55e\"\n    },\n    \"icon\": {\n        \"id\": \"icon_1212121212_id\",\n        \"name\": \"work\",\n        \"symbol\": \"💼\"\n    },\n    \"_id\": \"65619c82a31e3a563cac6bf3\",\n    \"name\": \"work\",\n    \"isEditable\": true,\n    \"user\": \"65618a96e4d17bd2f96e8c7c\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "update category",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test edit\",\r\n    \"isEditable\": true,\r\n    \"color\": {\r\n        \"id\": \"color_1212121212_id\",\r\n        \"name\": \"purple\",\r\n        \"code\": \"#22c55e\"\r\n    },\r\n    \"icon\": {\r\n        \"id\": \"icon_1212121212_id\",\r\n        \"name\": \"work\",\r\n        \"symbol\": \"💼\"\r\n    },\r\n    \"user\": \"65618a96e4d17bd2f96e8c7c\",\r\n    \"_id\": \"6561a096a31e3a563cac6c03\",\r\n    \"__v\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/categories/update"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"work edit\",\r\n    \"isEditable\": true,\r\n    \"color\": {\r\n        \"id\": \"color_1212121212_id\",\r\n        \"name\": \"purple\",\r\n        \"code\": \"#22c55e\"\r\n    },\r\n    \"icon\": {\r\n        \"id\": \"icon_1212121212_id\",\r\n        \"name\": \"work\",\r\n        \"symbol\": \"💼\"\r\n    },\r\n    \"user\": \"65618a96e4d17bd2f96e8c7c\",\r\n    \"_id\": \"6561a096a31e3a563cac6c03\",\r\n    \"__v\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/categories/update"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b-qHzEGuzfkbWWaCpwJ2RicWXJxGw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Nov 2023 07:23:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Category updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete category",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:3000/categories/6567eb1e5d1d8869b76eebac"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:3000/categories/65619c82a31e3a563cac6bf3"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b-oSB9C9UJoaUkZ5Mu5gkTHkZwuV4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Nov 2023 07:15:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Category deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morning\",\r\n    \"user\" : \"6567ead98750001d5bcf6f4e\",\r\n    \"categoryId\" : \"6567ec1042fb0394b6c761fa\",\r\n    \"date\" : \"2023-11-28T01:57:43.413Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/tasks/create"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morning\",\r\n    \"user\" : \"65618a96e4d17bd2f96e8c7c\",\r\n    \"categoryId\" : \"65619f7ca31e3a563cac6bff\",\r\n    \"date\" : \"2023-11-27T01:57:43.413Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/tasks/create"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "265"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"109-Rp9J8I9Anz3pC0ORc0N4SaPr6/w\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 01:58:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": \"65618a96e4d17bd2f96e8c7c\",\n    \"categoryId\": \"65619f7ca31e3a563cac6bff\",\n    \"name\": \"morning\",\n    \"isCompleted\": false,\n    \"date\": \"2023-11-27T01:57:43.413Z\",\n    \"_id\": \"6563f7cb526589e81753c49e\",\n    \"createdAt\": \"2023-11-27T01:58:35.174Z\",\n    \"updatedAt\": \"2023-11-27T01:58:35.174Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "get all task",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/tasks"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/tasks/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "267"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10b-dh94esdXAv2h9gAt4kpK8rNyZuc\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 01:58:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6563f7cb526589e81753c49e\",\n        \"user\": \"65618a96e4d17bd2f96e8c7c\",\n        \"categoryId\": \"65619f7ca31e3a563cac6bff\",\n        \"name\": \"morning\",\n        \"isCompleted\": false,\n        \"date\": \"2023-11-27T01:57:43.413Z\",\n        \"createdAt\": \"2023-11-27T01:58:35.174Z\",\n        \"updatedAt\": \"2023-11-27T01:58:35.174Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get task for today",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:3000/tasks/today"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDEwNTI0MTYsImV4cCI6MTcwMTY1NzIxNn0.cbNubiFxNPGGzDolwWR-81bAO-FrOnLrwGlQR3IKz1A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://localhost:3000/tasks/today"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "266"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10a-KUH3HAD690Hp5/ywvvKW6+nv7uk\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 02:46:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6563f7cb526589e81753c49e\",\n        \"user\": \"65618a96e4d17bd2f96e8c7c\",\n        \"categoryId\": \"65619f7ca31e3a563cac6bff\",\n        \"name\": \"morning\",\n        \"isCompleted\": true,\n        \"date\": \"2023-11-27T01:57:43.413Z\",\n        \"createdAt\": \"2023-11-27T01:58:35.174Z\",\n        \"updatedAt\": \"2023-11-27T02:11:13.761Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get all task completed",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/tasks/completed"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/tasks/completed"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "266"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10a-KUH3HAD690Hp5/ywvvKW6+nv7uk\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 02:12:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6563f7cb526589e81753c49e\",\n        \"user\": \"65618a96e4d17bd2f96e8c7c\",\n        \"categoryId\": \"65619f7ca31e3a563cac6bff\",\n        \"name\": \"morning\",\n        \"isCompleted\": true,\n        \"date\": \"2023-11-27T01:57:43.413Z\",\n        \"createdAt\": \"2023-11-27T01:58:35.174Z\",\n        \"updatedAt\": \"2023-11-27T02:11:13.761Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "get all task by category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/tasks/tasks-by-categories/65619f7ca31e3a563cac6bff"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/tasks/tasks-by-categories/65619f7ca31e3a563cac6bff"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "267"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10b-dh94esdXAv2h9gAt4kpK8rNyZuc\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 02:06:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6563f7cb526589e81753c49e\",\n        \"user\": \"65618a96e4d17bd2f96e8c7c\",\n        \"categoryId\": \"65619f7ca31e3a563cac6bff\",\n        \"name\": \"morning\",\n        \"isCompleted\": false,\n        \"date\": \"2023-11-27T01:57:43.413Z\",\n        \"createdAt\": \"2023-11-27T01:58:35.174Z\",\n        \"updatedAt\": \"2023-11-27T01:58:35.174Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "update task status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isCompleted\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/tasks/update/6563f7cb526589e81753c49e"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTI1MzQsImV4cCI6MTcwMTQ5NzMzNH0.HNmap5gc6UL2vP4t3-yDX23IU_pLJip2kffiiMzc7Ss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isCompleted\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/tasks/update/6563f7cb526589e81753c49e"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"21-Dxdo9lK2bIRjQf14fNRT7CS9aAQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 02:11:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task status updated\"\n}"
+				}
+			]
+		},
+		{
+			"name": "edit task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_id\": \"6563f7cb526589e81753c49e\",\r\n  \"categoryId\": \"65619f7ca31e3a563cac6bff\",\r\n  \"name\": \"Morning Edit\",\r\n  \"date\": \"2023-11-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/tasks/edit/6563f7cb526589e81753c49e"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDEwNTI0MTYsImV4cCI6MTcwMTY1NzIxNn0.cbNubiFxNPGGzDolwWR-81bAO-FrOnLrwGlQR3IKz1A",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"_id\": \"6563f7cb526589e81753c49e\",\r\n  \"categoryId\": \"65619f7ca31e3a563cac6bff\",\r\n  \"name\": \"Morning Edit\",\r\n  \"date\": \"2023-11-27\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/tasks/edit/6563f7cb526589e81753c49e"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-vC4L1yFg3cBzBDNFB1WmNLG8S4k\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 03:04:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task updated successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDA4OTEzOTAsImV4cCI6MTcwMTQ5NjE5MH0.AtWpT21Xn9JjKPle9EvD483izIMJTYw5iQKVk5LrGxc",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/tasks/656402e717cb90b487965071"
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYxOGE5NmU0ZDE3YmQyZjk2ZThjN2MiLCJpYXQiOjE3MDEwNTI0MTYsImV4cCI6MTcwMTY1NzIxNn0.cbNubiFxNPGGzDolwWR-81bAO-FrOnLrwGlQR3IKz1A",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/tasks/656402e717cb90b487965071"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a-EXuvryuVXWlMt0iHutTdXWDMZ38\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Nov 2023 02:55:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Task deleted\"\n}"
+				}
+			]
+		}
+	]
+}
