@@ -2,10 +2,10 @@
     "version": 2,
     "builds": [{ "src": "/src/server.ts", "use": "@vercel/node" }],
     "routes": [
-      { "src": "/users/(.*)", "dest": "/server.ts" },
-      { "src": "/categories/(.*)", "dest": "/server.ts" },
-      { "src": "/tasks/(.*)", "dest": "/server.ts" },
-      { "src": "/ping", "dest": "/server.ts" },
+      { "src": "/users/(.*)", "dest": "/src/server.ts" },
+      { "src": "/categories/(.*)", "dest": "/src/server.ts" },
+      { "src": "/tasks/(.*)", "dest": "/src/server.ts" },
+      { "src": "/ping", "dest": "/src/server.ts" },
       { "handle": "filesystem" }
     ]
   }
