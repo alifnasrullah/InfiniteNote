@@ -5,6 +5,7 @@
       { "src": "/users/(.*)", "dest": "/server.ts" },
       { "src": "/categories/(.*)", "dest": "/server.ts" },
       { "src": "/tasks/(.*)", "dest": "/server.ts" },
+      { "src": "/ping", "dest": "/server.ts" },
       { "handle": "filesystem" }
     ]
   }
