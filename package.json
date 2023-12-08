@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node ./src/server.ts && node ./dist/server.js"
   },
-  "author": "alipnasrullah",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "@types/express": "^4.17.21",

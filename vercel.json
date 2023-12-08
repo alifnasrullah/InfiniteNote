@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "builds": [{ "src": "/src/server.ts", "use": "@vercel/node" }],
+    "routes": [
+      { "src": "/users/(.*)", "dest": "/server.ts" },
+      { "src": "/categories/(.*)", "dest": "/server.ts" },
+      { "src": "/tasks/(.*)", "dest": "/server.ts" },
+      { "handle": "filesystem" }
+    ]
+  }
